@@ -1,4 +1,4 @@
-# ChanImageDownloader
+# Chan Image Downloader
 A python program for downloading images from 4chan style sites
 
 for now only 8chan works
