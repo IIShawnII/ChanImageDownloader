@@ -109,7 +109,7 @@ def process_thread(board, thread):
     print('Board: {0}, Thread: {1:>4} getting image list'.format(board, str(thread)))
     files = get_files_in_thread(board, thread)
     if not files:
-        print('Board: {0}, Thread: {1} No image or thread found'.format(board, str(thread)))
+        print('Board: {0}, Thread: {1:>4} No image or thread found'.format(board, str(thread)))
         return
 
     folder = './8ch/' + board + '/' + str(thread) + '/'
@@ -117,9 +117,9 @@ def process_thread(board, thread):
         os.makedirs(folder)
     for file in files:
         if get_file(folder, board, file):
-            print('GET [Board: {0}, Thread: {1}, File: {2}]'.format(board, thread, file['name']))
+            print('GET [Board: {0}, Thread: {1:>4}, File: {2}]'.format(board, thread, file['name']))
         elif debug:
-            print('Exists [Board: {0}, Thread: {1}, File: {2}]'.format(board, thread, file['name']))
+            print('Exists [Board: {0}, Thread: {1:>4}, File: {2}]'.format(board, thread, file['name']))
 
 
 def process_board(board):
@@ -136,7 +136,7 @@ def process_board(board):
 def config_argparse():
     parser = argparse.ArgumentParser(description='8chan Downloader')
     parser.add_argument('-b', metavar='Board', dest='board', type=str, nargs=1,
-                        help='*Required arg. name of the board to downlaod everything within, unless thread number is provided.',
+                        help='*Required arg. name of the board to download everything within, unless thread number is provided.',
                         required=True)
     parser.add_argument('-t', metavar='Thread', dest='thread', type=int, nargs=1,
                         help='Optional arg. thread number. if present only the thread provided will be downloaded.')
